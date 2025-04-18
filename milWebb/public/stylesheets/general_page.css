@@ -1,0 +1,86 @@
+/* Grundlæggende styling for General-siden */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.controls {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.controls label {
+  font-size: 1.2em;
+  margin-right: 10px;
+}
+
+.controls select {
+  font-size: 1em;
+  padding: 5px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#map {
+  width: 70%;
+  height: 500px;
+  background-color: #ddd;
+  border-radius: 8px;
+}
+
+.troop-list {
+  width: 25%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.troop-list h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+  color: #2c3e50;
+}
+
+.troop-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.troop-list li {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #ecf0f1;
+  border-radius: 5px;
+  font-size: 1.1em;
+}
+
+.troop-list li:nth-child(even) {
+  background-color: #bdc3c7;
+}

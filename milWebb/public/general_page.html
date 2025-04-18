@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Oversigt</title>
+    <link rel="stylesheet" href="general_page.css">
+    <script src="general_page.js"></script>
+</head>
+<body>
+    <header>
+        <h1>General Oversigt</h1>
+    </header>
+    <main>
+        <div class="controls">
+            <label for="filter">Filtrer enheder:</label>
+            <select id="filter">
+                <option value="all">Alle</option>
+                <option value="squad1">Squad 1</option>
+                <option value="squad2">Squad 2</option>
+            </select>
+        </div>
+        <div class="container">
+            <div id="map"></div>
+            <div class="troop-list">
+                <h2>Troppepositioner</h2>
+                <ul id="troop-data">
+                    <li>Loading...</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <script>
+        var map = L.map('map').setView([50.4501, 30.5234], 6);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+    </script>
+</body>
+</html>

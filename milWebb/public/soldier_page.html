@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>milWeb</title>
+        <link rel="stylesheet" href="/stylesheets/soldier_page.css">
+    </head>
+    <body>
+        <section>
+            <h1>soldat lort</h1>
+        </section>
+        <sectionbc>
+            <div class="login-container">
+                <p>LOGIN</p>
+                <form id="loginForm" onsubmit="submitForm(event)">
+                    <label for="MilitaryId">Military Id:</label>
+                    <input type="text" id="username" name="username" class="input-field" required>
+                
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" class="input-field" required>
+                
+                    <input type="submit" value="Login" class="submit-button">
+                </form>
+            </div>
+        </sectionbc>
+        <script src="index.js"></script>
+    </body>
+</html>
