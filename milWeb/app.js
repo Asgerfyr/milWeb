@@ -17,70 +17,19 @@ app.use(sessionMiddleware);
 // Serve static HTML files from "public" folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-// Dummy User Data (Replace with a real database) ######################################################################
-const permissionUsers = {"8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918":2,
-  "57b6c3bcc81dd2a6595aba6f9697bda014b2c57301c5745ff924c60dc2a97cb0":1,
-};
-
+const indexRoutes = require('./routes/index.js');
 const loginRoutes = require('./routes/login.js');
+const logoutRoutes = require('./routes/logout.js');
+const soldierRoutes = require('./routes/soldier.js');
+const generalRoutes = require('./routes/general.js');
+const mainRoutes = require('./routes/main.js');
 
-// Authentication Route (Login)
+app.use('/', indexRoutes);
 app.use('/login', loginRoutes);
-
-// Protected Route (Dashboard)
-app.get('/main', (req, res) => {
-  if(!req.session.user) {
-    res.status(403).sendFile(path.join(__dirname, 'public', 'unauthorized.html'));
-  }
-  mainGetPage(req, res);
-});
-
-app.get('/', (req, res) => {
-  if(!req.session.user) {
-    res.redirect('/login');
-  }
-  mainGetPage(req, res);
-});
-
-function mainGetPage(req, res) {
-  switch(permissionUsers[req.session.userId]) {
-    case 1:
-      res.redirect('/soldier');
-      break;
-
-    case 2:
-      res.redirect('/general');
-      break;
-
-    default:
-      res.status(401).sendFile(path.join(__dirname, 'public', 'unauthorized.html'));
-      break;
-  }
-}
-
-app.get('/soldier', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'soldier_page.html'));
-});
-
-app.get('/general', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'general_page.html'));
-});
-
-// Logout Route
-app.post('/logout', (req, res) => {
-  req.session.destroy(err => {
-    if (err) return res.status(500).send("Logout failed");
-    res.sendFile(path.join(__dirname, 'public', 'logout.html'));
-  });
-});
-
-app.get('/logout', (req, res) => {
-  req.session.destroy(err => {
-    if (err) return res.status(500).send("Logout failed");
-    res.sendFile(path.join(__dirname, 'public', 'logout.html'));
-  });
-});
+app.use('/logout', logoutRoutes);
+app.use('/soldier', soldierRoutes);
+app.use('/general', generalRoutes);
+app.use('/main', mainRoutes);
 
 
 // Example route (optional, in case you want a custom API route)

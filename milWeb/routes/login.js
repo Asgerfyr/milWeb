@@ -16,7 +16,7 @@ const permissionUsers = {"8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f
 "57b6c3bcc81dd2a6595aba6f9697bda014b2c57301c5745ff924c60dc2a97cb0":1,
 };
 
-
+// Authentication Route (Login)
 router.post('/', (req, res) => {
     const { username, password } = req.body;
     console.log(req.body);
