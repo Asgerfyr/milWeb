@@ -1,7 +1,7 @@
 
 const path = require('path');
-const userPermission = require('./database_/userPremission.js');
-const sitePermission = require('./database_/sitePremission.js');
+const userPermission = require('./database_/userPermission.js');
+const sitePermission = require('./database_/sitePermission.js');
 
 function isAuthenticated(req, res, next) {
   if(!sitePermission.permissionLevel(req.originalUrl))return next();
