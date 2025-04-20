@@ -14,8 +14,10 @@ app.use(cookieParser());
 const sessionMiddleware = require('./modules/session');
 app.use(sessionMiddleware);
 
+const authentication = require('./modules/authenticationMiddleware.js');
+
 // Serve static HTML files from "public" folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(authentication, express.static(path.join(__dirname, 'public')));
 
 const indexRoutes = require('./routes/index.js');
 const loginRoutes = require('./routes/login.js');
@@ -24,7 +26,6 @@ const soldierRoutes = require('./routes/soldier.js');
 const generalRoutes = require('./routes/general.js');
 const mainRoutes = require('./routes/main.js');
 
-const authentication = require('./modules/authenticationMiddleware.js');
 
 app.use('/', authentication, indexRoutes);
 app.use('/login', authentication, loginRoutes);
