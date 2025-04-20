@@ -12,12 +12,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(session({
-  secret: 'MIVMIV_I_MIV_1234!MIVMIV',  // Change this to a strong secret key
-  resave: false,
-  saveUninitialized: false,
-  cookie: { secure: false }  // Change to `true` if using HTTPS
-}));
+const sessionMiddleware = require('./modules/session');
+app.use(sessionMiddleware);
 
 // Serve static HTML files from "public" folder
 app.use(express.static(path.join(__dirname, 'public')));
