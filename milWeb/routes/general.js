@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const router = express.Router();
 
-
 const authentication = require('../modules/authenticationMiddleware.js');
 
 // Logout get route

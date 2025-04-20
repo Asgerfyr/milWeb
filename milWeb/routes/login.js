@@ -9,11 +9,8 @@ router.get('/', (req, res) => {
 
 // Dummy User Data (Replace with a real database) ######################################################################
 const users = { "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
-    "57b6c3bcc81dd2a6595aba6f9697bda014b2c57301c5745ff924c60dc2a97cb0": "57b6c3bcc81dd2a6595aba6f9697bda014b2c57301c5745ff924c60dc2a97cb0"
-};
-
-const permissionUsers = {"8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918":2,
-"57b6c3bcc81dd2a6595aba6f9697bda014b2c57301c5745ff924c60dc2a97cb0":1,
+    "57b6c3bcc81dd2a6595aba6f9697bda014b2c57301c5745ff924c60dc2a97cb0": "57b6c3bcc81dd2a6595aba6f9697bda014b2c57301c5745ff924c60dc2a97cb0",
+    "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4"
 };
 
 // Authentication Route (Login)
@@ -24,7 +21,6 @@ router.post('/', (req, res) => {
     if (users[username] && users[username] === password) {
         req.session.user = { username };
         req.session.userId = username;
-        console.log(req.session.user);
         return res.json({ message: "Login successful" });
     }
     console.log("Invalid credentials");

@@ -4,9 +4,6 @@ const router = express.Router();
 
 // Protected Route (Dashboard)
 router.get('/', (req, res) => {
-  if(!req.session.user) {
-    res.status(403).sendFile(path.join(__dirname, '../public', 'unauthorized.html'));
-  }
   mainGetPage(req, res);
 });
 
@@ -17,16 +14,18 @@ const permissionUsers = {"8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f
 
 function mainGetPage(req, res) {
   switch(permissionUsers[req.session.userId]) {
+    
+    case 2:
+      res.redirect('/general');
+      break;
+    
     case 1:
       res.redirect('/soldier');
       break;
 
-    case 2:
-      res.redirect('/general');
-      break;
-
     default:
-      res.status(401).sendFile(path.join(__dirname, '../public', 'unauthorized.html'));
+      console.log("send things");
+      res.status(401).sendFile(path.join(__dirname, '../public', '401.html'));
       break;
   }
 }

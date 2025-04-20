@@ -24,12 +24,14 @@ const soldierRoutes = require('./routes/soldier.js');
 const generalRoutes = require('./routes/general.js');
 const mainRoutes = require('./routes/main.js');
 
-app.use('/', indexRoutes);
-app.use('/login', loginRoutes);
-app.use('/logout', logoutRoutes);
-app.use('/soldier', soldierRoutes);
-app.use('/general', generalRoutes);
-app.use('/main', mainRoutes);
+const authentication = require('./modules/authenticationMiddleware.js');
+
+app.use('/', authentication, indexRoutes);
+app.use('/login', authentication, loginRoutes);
+app.use('/logout', authentication, logoutRoutes);
+app.use('/soldier', authentication, soldierRoutes);
+app.use('/general', authentication, generalRoutes);
+app.use('/main', authentication, mainRoutes);
 
 
 // Example route (optional, in case you want a custom API route)
@@ -53,5 +55,3 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-
-
