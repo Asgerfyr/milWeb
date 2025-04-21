@@ -12,7 +12,10 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+const config = require('../config.json');// Use the port configuration from config.json
+const standardPort = config.server.port || '3000';
+
+var port = normalizePort(process.env.PORT || standardPort);
 app.set('port', port);
 
 /**

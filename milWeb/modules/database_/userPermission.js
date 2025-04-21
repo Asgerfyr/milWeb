@@ -13,5 +13,5 @@ function permissionLevel(userId) {
   return permissionUsers[userId] || 0;
 }
 
-
+//export the object so other files can use it
 module.exports = { permissionLevel };

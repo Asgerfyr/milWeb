@@ -35,4 +35,5 @@ function login(req, res) {
     res.status(401).json({ error: "Invalid credentials" });
 }
 
+//export the function so other files can use it
 module.exports = login; 

@@ -28,5 +28,5 @@ function permissionLevel(site) {
     return sitePermissionLevels[site];
 }
 
-
+//export the object so other files can use it
 module.exports = { permissionLevel };

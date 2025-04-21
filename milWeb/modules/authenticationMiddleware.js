@@ -12,5 +12,6 @@ function isAuthenticated(req, res, next) {
   res.status(401).sendFile(path.join(__dirname, '../public', 'unauthorized.html'));
 }
 
+//export the function so other files can use it
 module.exports = isAuthenticated;
 

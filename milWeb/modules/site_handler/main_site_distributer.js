@@ -20,4 +20,5 @@ function mainGetPage(req, res) {
     }
 }
 
+//export the object so other files can use it
 module.exports = mainGetPage;
