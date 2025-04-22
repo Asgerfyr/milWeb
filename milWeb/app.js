@@ -26,6 +26,8 @@ const soldierRoutes = require('./routes/soldier.js');
 const generalRoutes = require('./routes/general.js');
 const mainRoutes = require('./routes/main.js');
 
+const adminRoutes = require('./routes/admin.js');
+
 
 app.use('/', authentication, indexRoutes);
 app.use('/login', authentication, loginRoutes);
@@ -33,6 +35,8 @@ app.use('/logout', authentication, logoutRoutes);
 app.use('/soldier', authentication, soldierRoutes);
 app.use('/general', authentication, generalRoutes);
 app.use('/main', authentication, mainRoutes);
+
+app.use('/admin', authentication, adminRoutes);
 
 
 // Example route (optional, in case you want a custom API route)

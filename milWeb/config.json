@@ -3,8 +3,8 @@
         "setup": {
             "host": "localhost",
             "user": "root",
-            "database": "test",
-            "password": "password"
+            "database": "milweb",
+            "password": ""
         },
         "encryptioncode": "MIVMIV"
     },
