@@ -32,4 +32,4 @@ function permissionLevel(site) {
 }
 
 //export the object so other files can use it
-module.exports = { permissionLevel };
+module.exports = permissionLevel;

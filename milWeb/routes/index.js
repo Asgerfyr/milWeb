@@ -6,8 +6,10 @@ const router = express.Router();
 router.get('/', (req, res) => {
     if(!req.session.user) {// check if user is logged in
       res.redirect('/login');// redirect to login page if not logged in
+      return;
     }
     res.redirect('/main'); // redirect to main page if logged in
+    return;
 });
 
 //export the object so other files can use it

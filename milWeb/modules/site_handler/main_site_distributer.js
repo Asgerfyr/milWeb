@@ -1,9 +1,8 @@
 const path = require('path');
 const permissionUsers = require('../database_/userPermission.js');
 
-function mainGetPage(req, res) {
-    console.log("test");
-    switch(permissionUsers.permissionLevel(req.session.userId)) {
+async function mainGetPage(req, res) {
+    switch( await permissionUsers(req.session.userId)) {
         
         case 2:
         res.redirect('/general');
@@ -14,7 +13,6 @@ function mainGetPage(req, res) {
         break;
 
         default:
-        console.log("send things");
         res.status(401).sendFile(path.join(__dirname, '../../public', '401.html'));
         break;
     }
