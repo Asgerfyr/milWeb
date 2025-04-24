@@ -14,8 +14,10 @@ app.use(cookieParser());
 const sessionMiddleware = require('./modules/session');
 app.use(sessionMiddleware);
 
+const authentication = require('./modules/authenticationMiddleware.js');
+
 // Serve static HTML files from "public" folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(authentication, express.static(path.join(__dirname, 'public')));
 
 const indexRoutes = require('./routes/index.js');
 const loginRoutes = require('./routes/login.js');
@@ -24,12 +26,17 @@ const soldierRoutes = require('./routes/soldier.js');
 const generalRoutes = require('./routes/general.js');
 const mainRoutes = require('./routes/main.js');
 
-app.use('/', indexRoutes);
-app.use('/login', loginRoutes);
-app.use('/logout', logoutRoutes);
-app.use('/soldier', soldierRoutes);
-app.use('/general', generalRoutes);
-app.use('/main', mainRoutes);
+const adminRoutes = require('./routes/admin.js');
+
+
+app.use('/', authentication, indexRoutes);
+app.use('/login', authentication, loginRoutes);
+app.use('/logout', authentication, logoutRoutes);
+app.use('/soldier', authentication, soldierRoutes);
+app.use('/general', authentication, generalRoutes);
+app.use('/main', authentication, mainRoutes);
+
+app.use('/admin', authentication, adminRoutes);
 
 
 // Example route (optional, in case you want a custom API route)
@@ -53,5 +60,3 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-
-

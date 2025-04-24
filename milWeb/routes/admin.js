@@ -4,15 +4,15 @@ const router = express.Router();
 
 // get route for login page
 router.get('/', (req, res) => {
-  return res.sendFile(path.join(__dirname, '../public', 'login.html'));
+  res.sendFile(path.join(__dirname, '../public', 'admin_add_user.html'));
 });
 
 // get login function that handles login logic
-const loginFunc = require('../modules/database_/login.js');
+const add_userFunc = require('../modules/database_/add_user.js');
 
 // Authentication Route (Login)
-router.post('/', (req, res) => {
-  return loginFunc(req, res);
+router.post('/add_user', (req, res) => {
+    add_userFunc(req, res);
 });
 
 //export the object so other files can use it

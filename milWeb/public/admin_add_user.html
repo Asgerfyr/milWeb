@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>milWeb</title>
+    <link rel="stylesheet" href="/stylesheets/login.css" />
+  </head>
+  <body>
+    <section>
+      <h1>Welcome to admin site</h1>
+    </section>
+
+    <div class="login-container">
+      <p>Add User</p>
+      <form id="add_userForm" onsubmit="submitForm(event)">
+
+        <label for="username">Military Id:</label>
+        <input type="text" id="username" name="username" class="input-field" required/>
+
+        <label for="callsign">Callsign:</label>
+        <input type="text" id="callsign" name="callsign" class="input-field" required/>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" class="input-field" required/>
+
+        <label for="permissionLevel">permissionLevel:</label>
+        <input type="text" id="permissionLevel" name="permissionLevel" class="input-field" required/>
+
+        <button id="add_userButton" type="submit" class="submit-button">Add User</button>
+      </form>
+    </div>
+
+    <script src="/javascripts/admin_add_user.js"></script>
+  </body>
+</html>

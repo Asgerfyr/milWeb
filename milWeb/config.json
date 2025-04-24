@@ -1,0 +1,18 @@
+{
+    "database": {
+        "setup": {
+            "host": "localhost",
+            "user": "root",
+            "database": "milweb",
+            "password": ""
+        },
+        "encryptioncode": "MIVMIV"
+    },
+    "server": {
+        "port": "3000"
+    },
+    "session": {
+        "secretkode": "miv"
+    }
+
+}
