@@ -91,6 +91,8 @@ class addPosition {
         `;
         filterContainer.appendChild(label);
       });
+
+      data.sort((a, b) => a.type.localeCompare(b.type));
   
       // Place all markers and create table
       data.forEach(position => {
@@ -140,4 +142,3 @@ class addPosition {
       });
     });
   }
-  
