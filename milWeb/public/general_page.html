@@ -1,40 +1,44 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
+    <link rel="stylesheet" href="/stylesheets/general_page.css">
+
+    <link rel="stylesheet" href="/leaflet/leaflet.css"/>
+    <script src="/leaflet/leaflet.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>General Oversigt</title>
-    <link rel="stylesheet" href="general_page.css">
-    <script src="general_page.js"></script>
 </head>
 <body>
     <header>
-        <h1>General Oversigt</h1>
+        <h1>Troop map</h1>
     </header>
+    <div class="page-nav">
+        <a href="/general_page.html" class="nav-link">Map View</a>
+        <a href="/general_page_info.html" class="nav-link">Info View</a>
+    </div>
     <main>
-        <div class="controls">
-            <label for="filter">Filtrer enheder:</label>
-            <select id="filter">
-                <option value="all">Alle</option>
-                <option value="squad1">Squad 1</option>
-                <option value="squad2">Squad 2</option>
-            </select>
-        </div>
         <div class="container">
-            <div id="map"></div>
             <div class="troop-list">
-                <h2>Troppepositioner</h2>
-                <ul id="troop-data">
-                    <li>Loading...</li>
-                </ul>
+                <table id="troop-data">
+                    <thead>
+                      <tr>
+                        <th>Type</th>
+                        <th>ID</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr><td colspan="4">Loading...</td></tr>
+                    </tbody>
+                  </table>
+            </div>
+            <div class="troop-map">
+                <div id="map"></div>
             </div>
         </div>
+        <script src="/javascripts/general_page.js"></script>
     </main>
-    <script>
-        var map = L.map('map').setView([50.4501, 30.5234], 6);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
-    </script>
 </body>
 </html>

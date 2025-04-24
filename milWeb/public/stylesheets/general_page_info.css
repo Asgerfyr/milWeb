@@ -40,7 +40,7 @@ label {
 
 
 
-/*Troop list and map styling*/
+/*Troop list and information styling*/
 .container {
   display: flex;
   height: 80vh;
@@ -54,17 +54,6 @@ label {
   padding: 0 20px;
   background-color: #4c4f1a;
   position: relative;
-}
-
-.troop-map {
-  width: 70%;
-  height: 100%;
-  position: relative;
-}
-
-#map { 
-  height: 100%; 
-  width: 100%; 
 }
 
 #troop-data {
@@ -98,12 +87,43 @@ label {
   text-align: left;
 }
 
-#troop-data tbody tr:hover {
-  background-color: #555;
-  transition: background-color 0.2s ease;
+
+#troop-data a.info-link {
+  color: #ffdd57;
+  text-decoration: underline;
   cursor: pointer;
 }
 
+
+.info-panel {
+  width: 70%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: #2f3112;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.info-panel h2 {
+  font-size: 36px;
+  margin-bottom: 15px;
+  color: #e1d798;
+}
+
+#info-content {
+  font-size: 18px;
+  color: #e1d798;
+  white-space: pre-wrap; /* Keep line breaks */
+}
+
+#troop-data tr.info-row {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#troop-data tr.info-row:hover {
+  background-color: #555;
+}
 
 .page-nav {
   display: flex;
