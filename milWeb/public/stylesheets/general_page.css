@@ -21,13 +21,13 @@ section {
 }
 
 h1 {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-size: 50px;
 }
 
 header {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 label {
@@ -96,4 +96,35 @@ label {
   font-size: 24px;
   border: 2px solid #ddd;
   text-align: left;
+}
+
+#troop-data tbody tr:hover {
+  background-color: #555;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+
+.page-nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  background-color: #333;
+  padding: 10px 20px;
+  border-bottom: 2px solid #888;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.page-nav .nav-link {
+  color: #e1d798;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+}
+
+.page-nav .nav-link:hover {
+  color: #fff;
+  text-shadow: 0 0 5px #e1d798;
 }
