@@ -1,103 +1,144 @@
-class addPosition{
-    constructor({id, lat,lng,type}, map){
-        this.lat=lat;
-        this.lng=lng;
-        this.type=type.toLowerCase();
-        this.map=map;
-        this.id = id;
-
-        this.layer = this.addShape();
-        this.addToMap();
+class addPosition {
+    constructor({ id, lat, lng, type, size }, map) {
+      this.lat = lat;
+      this.lng = lng;
+      this.type = type.toLowerCase();
+      this.map = map;
+      this.id = id;
+      this.size = size;
+  
+      this.normalizedType = this.getNormalizedType(); // 'enemy', 'friendly', 'hq', or 'other'
+  
+      this.layer = this.addShape();
+      this.addToMap();
     }
-
-    addShape(){
-        const latlng = [this.lat, this.lng];
-
-        switch(this.type){
-            case "enemy":
-                return L.circle(latlng, {
-                    color: 'red',
-                    fillOpacity: 0.1,
-                    radius: 500
-                });
-            case "friendly":
-                return L.circle(latlng, {
-                    color: 'blue',
-                    fillOpacity: 0.1,
-                    radius: 500
-                });
-            case "hq":
-                return L.circle(latlng, {
-                    color: 'green',
-                    fillOpacity: 0.1,
-                    radius: 500
-                });
-            default:
-                return L.circle(latlng, {
-                    color: 'purple',
-                    fillOpacity: 0.1,
-                    radius: 500
-                });
-        }
+  
+    getNormalizedType() {
+      const knownTypes = ['enemy', 'friendly', 'hq'];
+      return knownTypes.includes(this.type) ? this.type : 'other';
     }
-
+  
+    addShape() {
+      const latlng = [this.lat, this.lng];
+  
+      switch (this.normalizedType) {
+        case "enemy":
+          return L.circle(latlng, {
+            color: 'red',
+            fillOpacity: 0.1,
+            radius: this.size
+          });
+        case "friendly":
+          return L.circle(latlng, {
+            color: 'blue',
+            fillOpacity: 0.1,
+            radius: this.size
+          });
+        case "hq":
+          return L.circle(latlng, {
+            color: 'green',
+            fillOpacity: 0.1,
+            radius: this.size
+          });
+        case "other":
+        default:
+          return L.circle(latlng, {
+            color: 'purple',
+            fillOpacity: 0.1,
+            radius: this.size
+          });
+      }
+    }
+  
     addToMap() {
-        this.layer.addTo(this.map).bindPopup(`${this.type.toUpperCase()} | id: ${this.id}`).openPopup();
+      this.layer.addTo(this.map).bindPopup(`${this.type.toUpperCase()} | id: ${this.id}`).openPopup();
     }
-
+  
     remove() {
-        this.map.removeLayer(this.layer);
+      this.map.removeLayer(this.layer);
     }
-}
-
-
-var map = L.map('map').setView([51.505, -0.09], 8);
-
-//Map that is dark and looks more tactical
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
+  }
+  
+  var map = L.map('map').setView([51.505, -0.09], 8);
+  
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions">CartoDB</a>',
     maxZoom: 19
   }).addTo(map);
-
-
-  const positionsById = {}; // Store positions by ID for reference
-
+  
+  const markersByType = {
+    enemy: [],
+    friendly: [],
+    hq: [],
+    other: []
+  };
+  
   fetch('javascripts/data.json')
-      .then(response => response.json())
-      .then(data => {
-          const tbody = document.querySelector('#troop-data tbody');
-          tbody.innerHTML = '';
+    .then(response => response.json())
+    .then(data => {
+      const tbody = document.querySelector('#troop-data tbody');
+      tbody.innerHTML = '';
   
-          data.sort((a, b) => a.type.localeCompare(b.type));
+      const filterContainer = document.querySelector('.filter-controls');
+      filterContainer.innerHTML = '';
   
-          data.forEach(position => {
-              const { id, lat, lng, type } = position;
+      // Create checkboxes
+      ['enemy', 'friendly', 'hq', 'other'].forEach(type => {
+        const label = document.createElement('label');
+        label.style.marginRight = '15px';
+        label.innerHTML = `
+          <input type="checkbox" class="filter" value="${type}" checked> ${type.charAt(0).toUpperCase() + type.slice(1)}
+        `;
+        filterContainer.appendChild(label);
+      });
+
+      data.sort((a, b) => a.type.localeCompare(b.type));
   
-              const marker = new addPosition({ id, lat, lng, type }, map);
-              positionsById[id] = marker; // Save marker by ID
+      // Place all markers and create table
+      data.forEach(position => {
+        const marker = new addPosition(position, map);
+        const normalizedType = marker.getNormalizedType();
+        markersByType[normalizedType].push(marker.layer);
   
-              const row = document.createElement('tr');
-              row.innerHTML = `
-                  <td>${type.toUpperCase()}</td>
-                  <td>${id}</td>
-                  <td>${lat.toFixed(4)}</td>
-                  <td>${lng.toFixed(4)}</td>
-              `;
+        const { id, lat, lng, type } = position;
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${type.toUpperCase()}</td>
+          <td>${id}</td>
+          <td>${lat.toFixed(4)}</td>
+          <td>${lng.toFixed(4)}</td>
+        `;
   
-              row.style.cursor = "pointer"; // Optional: visual cue
-              row.addEventListener('click', () => {
-                  const marker = positionsById[id];
-                  if (marker) {
-                      marker.layer.openPopup();
-                      map.setView([marker.lat, marker.lng], 10); // Optional: zoom in
-                  }
-              });
+        row.style.cursor = "pointer";
+        row.addEventListener('click', () => {
+          marker.layer.openPopup();
+          map.setView([lat, lng], 10);
+        });
   
-              tbody.appendChild(row);
-          });
-      })
-      .catch(error => {
-          console.error('Error loading troop data:', error);
-          document.getElementById('troop-data').innerHTML = '<tr><td colspan="4">Error loading data</td></tr>';
+        tbody.appendChild(row);
       });
   
+      setupFilterHandlers();
+    })
+    .catch(error => {
+      console.error('Error loading troop data:', error);
+    });
+  
+  function setupFilterHandlers() {
+    document.querySelectorAll('.filter').forEach(checkbox => {
+      checkbox.addEventListener('change', () => {
+        const type = checkbox.value;
+        const isChecked = checkbox.checked;
+  
+        if (markersByType[type]) {
+          markersByType[type].forEach(layer => {
+            if (isChecked) {
+              map.addLayer(layer);
+            } else {
+              map.removeLayer(layer);
+            }
+          });
+        }
+      });
+    });
+  }

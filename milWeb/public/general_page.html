@@ -2,7 +2,6 @@
 <html lang="da">
 <head>
     <link rel="stylesheet" href="/stylesheets/general_page.css">
-
     <link rel="stylesheet" href="/leaflet/leaflet.css"/>
     <script src="/leaflet/leaflet.js"></script>
     <meta charset="UTF-8">
@@ -34,8 +33,15 @@
                     </tbody>
                   </table>
             </div>
+            
             <div class="troop-map">
                 <div id="map"></div>
+                <div class="filter-controls">
+                    <label><input type="checkbox" class="filter" value="hq" checked>HQ</label>
+                    <label><input type="checkbox" class="filter" value="friendly" checked>Friendly</label>
+                    <label><input type="checkbox" class="filter" value="enemy" checked>Enemy</label>
+                    <label><input type="checkbox" class="filter" value="other" checked>Other</label>
+                  </div>
             </div>
         </div>
         <script src="/javascripts/general_page.js"></script>

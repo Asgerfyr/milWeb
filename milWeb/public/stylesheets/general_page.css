@@ -59,7 +59,8 @@ label {
 .troop-map {
   width: 70%;
   height: 100%;
-  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 #map { 
@@ -127,4 +128,24 @@ label {
 .page-nav .nav-link:hover {
   color: #fff;
   text-shadow: 0 0 5px #e1d798;
+}
+
+.filter-controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 0;
+  background-color: #4c4f1a;
+  color: #e1d798;
+  font-weight: bold;
+}
+
+.filter-controls label {
+  color: #e1d798;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.filter-controls input {
+  margin-right: 5px;
 }
