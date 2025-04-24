@@ -73,7 +73,7 @@ class addPosition {
     other: []
   };
   
-  fetch('javascripts/data.json')
+  fetch('/general/get_data')
     .then(response => response.json())
     .then(data => {
       const tbody = document.querySelector('#troop-data tbody');

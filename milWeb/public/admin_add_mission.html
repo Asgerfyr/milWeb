@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>milWeb</title>
+    <link rel="stylesheet" href="/stylesheets/login.css" />
+  </head>
+  <body>
+    <section>
+      <h1>Welcome to admin site</h1>
+    </section>
+
+    <div class="form-container">
+      <p>Add Mission</p>
+      <form id="add_missionForm" onsubmit="submitForm(event)">
+
+        <label for="name">Mission name:</label>
+        <input type="text" id="name" name="name" class="input-field" required/>
+
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" class="input-field" required/>
+
+        <button id="loginButton" type="submit" class="submit-button">Add Mission</button>
+      </form>
+    </div>
+
+    <script src="/javascripts/admin_add_mission.js"></script>
+  </body>
+</html>

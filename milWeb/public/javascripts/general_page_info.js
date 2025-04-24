@@ -1,4 +1,4 @@
-fetch('javascripts/data.json')
+fetch('/general/get_data')
   .then(response => response.json())
   .then(data => {
     console.log(data);

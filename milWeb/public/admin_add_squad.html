@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>milWeb</title>
+    <link rel="stylesheet" href="/stylesheets/login.css" />
+  </head>
+  <body>
+    <section>
+      <h1>Welcome to admin site</h1>
+    </section>
+
+    <div class="form-container">
+      <p>Add Squad</p>
+      <form id="add_missionForm" onsubmit="submitForm(event)">
+
+        <label for="callsign">Callsign:</label>
+        <input type="text" id="callsign" name="callsign" class="input-field" required/>
+
+        <label for="weapon_status">Weapon Status:</label>
+        <input type="text" id="weapon_status" name="weapon_status" class="input-field" required/>
+
+        <label for="food_status">Food Status:</label>
+        <input type="text" id="food_status" name="food_status" class="input-field" required/>
+
+        <label for="general_status">General Status:</label>
+        <input type="text" id="general_status" name="general_status" class="input-field" required/>
+
+        <label for="attached_mission_name">attached mission name:</label>
+        <input type="text" id="attached_mission_name" name="attached_mission_name" class="input-field" required/>
+
+        <button id="loginButton" type="submit" class="submit-button">Add Mission</button>
+      </form>
+    </div>
+
+    <script src="/javascripts/admin_add_squad.js"></script>
+  </body>
+</html>
