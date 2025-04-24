@@ -21,13 +21,13 @@ section {
 }
 
 h1 {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-size: 50px;
 }
 
 header {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 label {
@@ -105,7 +105,7 @@ label {
 }
 
 .info-panel h2 {
-  font-size: 28px;
+  font-size: 36px;
   margin-bottom: 15px;
   color: #e1d798;
 }
@@ -114,4 +114,37 @@ label {
   font-size: 18px;
   color: #e1d798;
   white-space: pre-wrap; /* Keep line breaks */
+}
+
+#troop-data tr.info-row {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#troop-data tr.info-row:hover {
+  background-color: #555;
+}
+
+.page-nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  background-color: #333;
+  padding: 10px 20px;
+  border-bottom: 2px solid #888;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.page-nav .nav-link {
+  color: #e1d798;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+}
+
+.page-nav .nav-link:hover {
+  color: #fff;
+  text-shadow: 0 0 5px #e1d798;
 }
