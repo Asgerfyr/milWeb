@@ -11,9 +11,9 @@
         <h1>Add information</h1>
     </header>
     <div class="page-nav">
-      <a href="/general_page.html" class="nav-link">Map View</a>
-      <a href="/general_page_info.html" class="nav-link">Info View</a>
-      <a href="/general_page_add.html" class="nav-link">Add View</a>
+      <a href="/general" class="nav-link">Map View</a>
+      <a href="/general/info" class="nav-link">Info View</a>
+      <a href="/general/add" class="nav-link">Add View</a>
     </div>
     <main>
       <div class="container">
@@ -32,7 +32,7 @@
         </div>
         <div class="info-panel" id="info-panel">
           <h2>Add Info</h2>
-          <form id="add-troop-form">
+          <form id="add-troop-form" onsubmit="submitForm(event)">
             <label for="type">Type:</label><br>
             <input type="text" id="type" name="type" required><br>
           
@@ -48,8 +48,8 @@
             <label for="size">Size:</label><br>
             <input type="text" id="size" name="size" required><br>
           
-            <label for="Information">Additional information:</label><br>
-            <textarea id="Information" name="Information" rows="4" required></textarea><br><br>
+            <label for="info">Additional information:</label><br>
+            <textarea type="text" id="info" name="info" required></textarea><br>
           
             <button type="submit">Add Troop</button>
           </form>

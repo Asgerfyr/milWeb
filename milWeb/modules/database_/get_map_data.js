@@ -85,13 +85,11 @@ async function getAllSquadDetails(squad_locations){
         const food_status = rows[0].food_status;
         const general_status = rows[0].general_status;
 
-        console.log(callsign);
-
         squad_details_object = {
             "id": callsign,
             "type": "Friendly",
-            "lat":latitude,
-            "lng":longitude,
+            "latitude":latitude,
+            "longitude":longitude,
             "size": 50,
             "danger_level": "Low",
             "Information": `Squad last report: ${time}, \n Mission ID: ${mission_id}, \n Weapon status: ${weapon_status}, \n Food status: ${food_status}, \n General status: ${general_status}`,

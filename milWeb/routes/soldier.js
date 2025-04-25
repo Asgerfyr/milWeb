@@ -15,11 +15,11 @@ router.get('/add_location' ,(req, res) => {
 
 
 // get login function that handles add logic
-const add_locationFunc = require('../modules/database_/add_location.js');
+const {add_location_soldierFunc } = require('../modules/database_/add_location.js');
 
 // Authentication Route (Login)
 router.post('/add_location', (req, res) => {
-    add_locationFunc(req, res);
+    add_location_soldierFunc(req, res);
 });
 
 //export the object so other files can use it

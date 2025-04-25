@@ -1,4 +1,4 @@
-fetch('javascripts/data.json')
+fetch('/general/get_data')
   .then(response => response.json())
   .then(data => {
     console.log(data);
@@ -31,37 +31,34 @@ fetch('javascripts/data.json')
 
 
 
+async function submitForm(e) {
+  e.preventDefault();
 
+  const data = {
+    type: document.getElementById('type').value,
+    id: document.getElementById('id').value,
+    latitude: document.getElementById('latitude').value,
+    longitude: document.getElementById('longitude').value,
+    size: document.getElementById('size').value,
+    Information: document.getElementById('info').value
+  };
 
-
-  document.getElementById('troop-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-  
-    const data = {
-      type: document.getElementById('type').value,
-      id: document.getElementById('id').value,
-      latitude: document.getElementById('latitude').value,
-      longitude: document.getElementById('longitude').value,
-      size: document.getElementById('size').value,
-      Information: document.getElementById('info').value
-    };
-  
-    fetch('/api/troops', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    })
-    .then(res => {
-      if (res.ok) {
-        alert('Troop info added!');
-        document.getElementById('troop-form').reset();
-      } else {
-        throw new Error('Failed to add troop info.');
-      }
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      alert('Error sending troop data.');
-    });
+  fetch('/general/add_data', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(res => {
+    if (res.ok) {
+      alert('Troop info added!');
+      document.getElementById('troop-form').reset();
+    } else {
+      throw new Error('Failed to add troop info.');
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('Error sending troop data.');
   });
+}
   
