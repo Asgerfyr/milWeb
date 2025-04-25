@@ -44,7 +44,7 @@ async function getHighestSquadID() {
 async function getMissionID(mission_name) {
     const [rows] = await database.query('SELECT mission_id AS id FROM mission Where AES_DECRYPT(name, ?) = ?',[encryptioncode, mission_name]);
     if(rows.length == 0 || rows.length > 1) return false;
-    const id = rows[0].id || 0;
+    const id = rows[0].id;
     return id;
 }
 

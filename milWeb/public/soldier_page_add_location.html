@@ -8,29 +8,26 @@
   </head>
   <body>
     <section>
-      <h1>Welcome to admin site</h1>
+      <h1>Welcome to soldier site</h1>
     </section>
 
     <div class="form-container">
-      <p>Add location</p>
-      <form id="add_userForm" onsubmit="submitForm(event)">
+      <p>Add Location</p>
+      <form id="add_missionForm" onsubmit="submitForm(event)">
 
-        <label for="username">Military Id:</label>
-        <input type="text" id="username" name="username" class="input-field" required/>
+        <label for="squad_callsign">Squad callsign:</label>
+        <input type="text" id="squad_callsign" name="squad_callsign" class="input-field" required/>
 
-        <label for="callsign">Callsign:</label>
-        <input type="text" id="callsign" name="callsign" class="input-field" required/>
+        <label for="latitude">Latitude:</label>
+        <input type="text" id="latitude" name="latitude" class="input-field" required/>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" class="input-field" required/>
+        <label for="longitude">Longitude:</label>
+        <input type="text" id="longitude" name="longitude" class="input-field" required/>
 
-        <label for="permissionLevel">permissionLevel:</label>
-        <input type="text" id="permissionLevel" name="permissionLevel" class="input-field" required/>
-
-        <button id="add_userButton" type="submit" class="submit-button">Add User</button>
+        <button id="loginButton" type="submit" class="submit-button">Add Mission</button>
       </form>
     </div>
 
-    <script src="/javascripts/admin_add_user.js"></script>
+    <script src="/javascripts/soldier_add_location.js"></script>
   </body>
 </html>
