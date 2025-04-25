@@ -1,7 +1,7 @@
 class addPosition {
-    constructor({ id, lat, lng, type, size }, map) {
-      this.lat = lat;
-      this.lng = lng;
+    constructor({ id, latitude, longitude, type, size }, map) {
+      this.lat = latitude;
+      this.lng = longitude;
       this.type = type.toLowerCase();
       this.map = map;
       this.id = id;
@@ -100,19 +100,19 @@ class addPosition {
         const normalizedType = marker.getNormalizedType();
         markersByType[normalizedType].push(marker.layer);
   
-        const { id, lat, lng, type } = position;
+        const { id, latitude, longitude, type } = position;
         const row = document.createElement('tr');
         row.innerHTML = `
           <td>${type.toUpperCase()}</td>
           <td>${id}</td>
-          <td>${lat.toFixed(4)}</td>
-          <td>${lng.toFixed(4)}</td>
+          <td>${latitude.toFixed(4)}</td>
+          <td>${longitude.toFixed(4)}</td>
         `;
   
         row.style.cursor = "pointer";
         row.addEventListener('click', () => {
           marker.layer.openPopup();
-          map.setView([lat, lng], 10);
+          map.setView([latitude, longitude], 10);
         });
   
         tbody.appendChild(row);
