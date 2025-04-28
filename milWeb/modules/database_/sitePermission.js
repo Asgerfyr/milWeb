@@ -8,7 +8,7 @@
 
 const sitePermissionLevels = {
     "/general": [2, 3], // page
-    "/general/": [2, 3], // page
+    "/general/": [2, 3], // pagesæææ
     "/general_page.html": [2, 3], //raw html page
     "/general_page.js": [2, 3], // raw js page
     "/general_page.css": [2, 3], // raw css page
