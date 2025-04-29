@@ -8,7 +8,7 @@
 
 const sitePermissionLevels = {
     "/general": [2, 3], // page
-    "/general/": [2, 3], // pagesæææ
+    "/general/": [2, 3], // page
     "/general_page.html": [2, 3], //raw html page
     "/general_page.js": [2, 3], // raw js page
     "/general_page.css": [2, 3], // raw css page
@@ -46,10 +46,10 @@ const sitePermissionLevels = {
 
 
 function permissionLevel(site) {
-  console.log(site)
-    if(!sitePermissionLevels[site])return false; // Default to open access if site is not liste
-
-    return sitePermissionLevels[site];
+  // Default to open access if site is not listed in dictionary
+    if(!sitePermissionLevels[site])return false; 
+    // return the permission level
+    return sitePermissionLevels[site]; 
 }
 
 //export the object so other files can use it
