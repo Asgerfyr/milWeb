@@ -6,24 +6,25 @@ Dette er et sikkert og effektivt system til håndtering af troppebevægelser, de
 <details>
   <summary>English</summary>
   
-  1. Clone repository
-  2. Install xampp
-  3. Start xampp and make a database called milweb
-  4. Import milweb.sql into the database
-  5. Open a terminal in milWeb folder
-  6. Run `npm install`
+  1. Download zip of repository
+  2. Unpack zip repository
+  3. Install xampp
+  4. Start xampp and make a database called "milweb"
+  5. Import milweb.sql from repository into the database 
+  6. Open a terminal in milWeb folder of repository
+  7. Run `npm install` in the terminal
   
 </details>
 
 <details>
   <summary>Dansk</summary>
   
-  1. Klone repository
+  1. Download zip fil af repository
   2. Installer xampp
-  3. Start xampp og opret en database ved navn milweb
-  4. Importér milweb.sql i databasen
-  5. Åbn en terminal i milWeb folder
-  6. Kør `npm install`
+  3. Start xampp og opret en database ved navn "milweb"
+  4. Importér milweb.sql fra repository ind i databasen
+  5. Åbn en terminal i milWeb folder af repository
+  6. Kør `npm install` i terminalen
   
 </details>
 
