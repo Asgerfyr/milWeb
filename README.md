@@ -8,161 +8,139 @@ Dette er et sikkert og effektivt system til håndtering af troppebevægelser, de
 
 <details>
   <summary>English</summary>
-  
-  1. Download zip of latest release
-    <details>
-      <summary>How to download zip</summary>
-      
-      1. Click on "Releases" in the right column of the GitHub page
-      2. Click on the latest release
-      3. Go to "Assets" and download "Source code (zip)"
-    </details>
+
+  1. <details>
+      <summary>Download zip of latest release</summary>
+      <ol>
+        <li>Click on "Releases" in the right column of the GitHub page</li>
+        <li>Click on the latest release</li>
+        <li>Go to "Assets" and download "Source code (zip)"</li>
+      </ol></details>
+
   2. Unpack zip
-  3. Install xampp if not installed
-    <details>
-      <summary>How to install xampp</summary>
-      
-      1. Go to https://www.apachefriends.org/download.html
-      2. Choose the correct version for your operation system
-      3. Download the file
-      4. Open the file and follow the instructions
-  4. Start xampp and make a database called "milweb"
-    <details>
-      <summary>How to create a database in xampp</summary>
-      
-      1. Open the xampp control panel
-      2. Click on the "Start" button next to Apache
-      3. Click on the "Start" button next to MySQL
-      4. Click on the "Admin" button next to MySQL
-      5. Click on the "Databases" tab
-      6. Create a new database by clicking on the "Create" button
-      7. Name the database "milweb"
-  5. Import `milweb.sql` into the database
-    <details>
-      <summary>How to import `milweb.sql` into the database</summary>
-      
-      1. Open the xampp control panel
-      2. Click on the "Start" button next to Apache
-      3. Click on the "Start" button next to MySQL
-      4. Click on the "Admin" button next to MySQL
-      5. Select the "milweb" database
-      6. Click on the "Import" tab
-      7. Click "Choose File" and select `milweb.sql`
-      8. Click "Go" to start the import process
-    </details>
-  6. Install node.js if not installed
-    <details>
-      <summary>How to install node.js</summary>
-      
-      1. Visit the [Node.js website](https://nodejs.org) and download the latest LTS version
-      2. Run the installer and follow the setup instructions
-      3. Verify the installation by running `npm -v` in your terminal to check the installed version
-    </details>
-  7. Open a terminal in milWeb folder
-  8. Run `npm install` in the terminal
+
+  3. <details>
+      <summary>Install XAMPP (if not installed)</summary>
+      <ol>
+        <li>Go to <a href="https://www.apachefriends.org/download.html">apachefriends.org</a></li>
+        <li>Choose the correct version for your OS</li>
+        <li>Download and run the installer</li>
+        <li>Follow the installation instructions</li>
+      </ol></details>
+
+  4. <details>
+      <summary>Start XAMPP and create a database called <code>milweb</code></summary>
+      <ol>
+        <li>Open the XAMPP control panel</li>
+        <li>Start Apache and MySQL</li>
+        <li>Click "Admin" next to MySQL</li>
+        <li>Go to the "Databases" tab</li>
+        <li>Create a new database named <code>milweb</code></li>
+      </ol></details>
+
+  5. <details>
+      <summary>Import <code>milweb.sql</code> into the database</summary>
+      <ol>
+        <li>Go to phpMyAdmin (via XAMPP "Admin")</li>
+        <li>Select the <code>milweb</code> database</li>
+        <li>Click on the "Import" tab</li>
+        <li>Choose the <code>milweb.sql</code> file</li>
+        <li>Click "Go" to import</li>
+      </ol></details>
+
+  6. <details>
+      <summary>Install Node.js (if not installed)</summary>
+      <ol>
+        <li>Go to the <a href="https://nodejs.org">Node.js website</a></li>
+        <li>Download the latest LTS version</li>
+        <li>Run the installer and follow the instructions</li>
+        <li>Verify with <code>npm -v</code> in terminal</li>
+      </ol></details>
+
+  7. Open a terminal in the <code>milWeb</code> folder  
+  8. Run <code>npm install</code>  
   9. Enjoy milWeb
 
+  <details>
+    <summary>Troubleshooting</summary>
+    If you encounter issues, ensure you use Node.js version <code>10.8.2</code>. Use nvm:
+
+    ```bash
+    nvm install 10.8.2
+    nvm use 10.8.2
+    ```
+
+  Then restart the server.
+  </details>
+
+</details>
+
+
 <details>
-  <summary>Troubleshooting</summary>
-  
-  If you encounter any issues while using milWeb, please ensure that you are using Node.js version 10.8.2. You can switch to this version using nvm (Node Version Manager) with the following commands:
+  <summary>Dansk</summary>
 
-  ```bash
-  nvm install 10.8.2
-  nvm use 10.8.2
-  ```
+  1. <details>
+      <summary>Download zip af den seneste udgivelse</summary>
+      <ol>
+        <li>Klik på "Releases" i højre kolonne på GitHub-siden</li>
+        <li>Klik på den seneste udgivelse</li>
+        <li>Gå til "Assets" og download "Source code (zip)"</li>
+      </ol></details>
 
-  After switching to the correct Node.js version, try running the server again.
+  2. Udpak zip-filen
 
-</details>
+  3. <details>
+      <summary>Installer XAMPP (hvis det ikke allerede er installeret)</summary>
+      <ol>
+        <li>Gå til <a href="https://www.apachefriends.org/download.html">apachefriends.org</a></li>
+        <li>Vælg den korrekte version til dit styresystem</li>
+        <li>Download og kør installationsfilen</li>
+        <li>Følg installationsvejledningen</li>
+      </ol></details>
 
+  4. <details>
+      <summary>Start XAMPP og opret en database kaldet <code>milweb</code></summary>
+      <ol>
+        <li>Åbn XAMPP kontrolpanelet</li>
+        <li>Start Apache og MySQL</li>
+        <li>Klik på "Admin" ved siden af MySQL</li>
+        <li>Gå til fanen "Databases"</li>
+        <li>Opret en ny database med navnet <code>milweb</code></li>
+      </ol></details>
 
-</details>
+  5. <details>
+      <summary>Importér <code>milweb.sql</code> til databasen</summary>
+      <ol>
+        <li>Gå til phpMyAdmin (via XAMPP "Admin")</li>
+        <li>Vælg databasen <code>milweb</code></li>
+        <li>Klik på fanen "Import"</li>
+        <li>Vælg filen <code>milweb.sql</code></li>
+        <li>Klik på "Go" for at importere</li>
+      </ol></details>
 
-<details> <summary>Dansk</summary>
-Download zip-filen af den seneste udgivelse
+  6. <details>
+      <summary>Installer Node.js (hvis det ikke allerede er installeret)</summary>
+      <ol>
+        <li>Gå til <a href="https://nodejs.org">Node.js hjemmeside</a></li>
+        <li>Download den nyeste LTS-version</li>
+        <li>Kør installationsfilen og følg vejledningen</li>
+        <li>Bekræft med <code>npm -v</code> i terminalen</li>
+      </ol></details>
 
-<details> <summary>Sådan downloader du zip-filen</summary>
-Klik på "Releases" i højre kolonne på GitHub-siden
+  7. Åbn en terminal i <code>milWeb</code>-mappen  
+  8. Kør <code>npm install</code>  
+  9. Nyd milWeb
 
-Klik på den seneste udgivelse
+  <details>
+    <summary>Fejlfinding</summary>
+    Hvis du oplever problemer, så sørg for at bruge Node.js version <code>10.8.2</code>. Brug nvm:
 
-Gå til "Assets" og download "Source code (zip)"
+    ```bash
+    nvm install 10.8.2
+    nvm use 10.8.2
+    ```
 
-</details>
-Udpak zip-filen
-
-Installer XAMPP, hvis det ikke allerede er installeret
-
-<details> <summary>Sådan installerer du XAMPP</summary>
-Gå til https://www.apachefriends.org/download.html
-
-Vælg den rigtige version til dit operativsystem
-
-Download filen
-
-Åbn filen og følg installationsvejledningen
-
-</details>
-Start XAMPP og opret en database ved navn "milweb"
-
-<details> <summary>Sådan opretter du en database i XAMPP</summary>
-Åbn XAMPP kontrolpanelet
-
-Klik på "Start" ud for Apache
-
-Klik på "Start" ud for MySQL
-
-Klik på "Admin" ud for MySQL
-
-Gå til fanen "Databases"
-
-Indtast "milweb" som databasenavn og klik "Create"
-
-</details>
-Importér milweb.sql i databasen
-
-<details> <summary>Sådan importerer du `milweb.sql`</summary>
-Følg trinnene ovenfor for at åbne phpMyAdmin
-
-Vælg databasen "milweb"
-
-Klik på fanen "Import"
-
-Klik "Vælg fil" og vælg milweb.sql
-
-Klik "Go" for at starte importen
+    Genstart derefter serveren.
+  </details>
 
 </details>
-Installer Node.js, hvis det ikke er installeret
-
-<details> <summary>Sådan installerer du Node.js</summary>
-Gå til Node.js hjemmeside
-
-Download den nyeste LTS-version
-
-Kør installationsfilen og følg vejledningen
-
-Tjek installationen med npm -v i terminalen
-
-</details>
-Åbn en terminal i mappen "milWeb"
-
-Kør npm install i terminalen
-
-Klar til brug!
-
-<details> <summary>Fejlfinding</summary>
-bash
-Copy
-Edit
-Hvis du får fejl, skal du sikre, at du bruger Node.js version 10.8.2.  
-Brug evt. nvm (Node Version Manager) til at skifte version:
-
-```bash
-nvm install 10.8.2
-nvm use 10.8.2
-```
-
-Prøv derefter at starte serveren igen.
-</details> </details>
