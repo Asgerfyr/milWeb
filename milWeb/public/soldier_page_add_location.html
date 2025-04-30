@@ -11,8 +11,12 @@
       <h1>Welcome to soldier site</h1>
     </section>
 
+    <div class="logout-container" onclick="window.location.href='/logout'">
+      <a href="/logout">Logout</a>
+    </div>
+
     <div class="form-container">
-      <p>Add Location</p>
+      <p>Send Location</p>
       <form id="add_missionForm" onsubmit="submitForm(event)">
 
         <label for="squad_callsign">Squad callsign:</label>
@@ -24,7 +28,7 @@
         <label for="longitude">Longitude:</label>
         <input type="text" id="longitude" name="longitude" class="input-field" required/>
 
-        <button id="loginButton" type="submit" class="submit-button">Add Mission</button>
+        <button id="loginButton" type="submit" class="submit-button">Send location</button>
       </form>
     </div>
 

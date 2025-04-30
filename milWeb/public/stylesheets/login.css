@@ -38,6 +38,29 @@ p {
   margin-bottom: 10px;
 }
 
+.logout-container {
+  position: absolute; 
+  right: 10px;
+  top:10px;
+  background-color: #444;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.logout-container:hover {
+  background-color: #555;
+}
+
+.logout-container a {
+  color: #e1d798;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+}
+
 .form-container {
   max-width: 300px;
   background: #e1d798;

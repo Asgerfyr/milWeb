@@ -9,12 +9,16 @@
 <body>
     <header>
         <h1>Add information</h1>
+        <div class="logout-container" onclick="window.location.href='/logout'">
+          <a href="/logout">Logout</a>
+        </div>
     </header>
     <div class="page-nav">
       <a href="/general" class="nav-link">Map View</a>
       <a href="/general/info" class="nav-link">Info View</a>
-      <a href="/general/add" class="nav-link">Add View</a>
+      <a href="/general/add" class="nav-link">Send Info</a>
     </div>
+
     <main>
       <div class="container">
         <div class="troop-list">
@@ -31,7 +35,7 @@
           </table>
         </div>
         <div class="info-panel" id="info-panel">
-          <h2>Add Info</h2>
+          <h2>Send Info</h2>
           <form id="add-troop-form" onsubmit="submitForm(event)">
             <label for="type">Type:</label><br>
             <input type="text" id="type" name="type" required><br>
@@ -51,7 +55,7 @@
             <label for="info">Additional information:</label><br>
             <textarea type="text" id="info" name="info" required></textarea><br>
           
-            <button type="submit">Add Troop</button>
+            <button type="submit">Send Info</button>
           </form>
           <div id="form-message" style="margin-top: 10px;"></div>
         </div>

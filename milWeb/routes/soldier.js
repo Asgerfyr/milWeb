@@ -4,7 +4,7 @@ const router = express.Router();
 
 // get route for the general page
 router.get('/' ,(req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'soldier_page.html'));
+    res.sendFile(path.join(__dirname, '../public', 'soldier_page_add_location.html'));
 });
 
 // get route for the general page

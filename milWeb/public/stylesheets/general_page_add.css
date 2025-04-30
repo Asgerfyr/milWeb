@@ -26,8 +26,33 @@ h1 {
 }
 
 header {
+  position: relative;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.logout-container {
+  position: absolute; 
+  right: 10px;
+  background-color: #444;
+  padding: 10px;
+  border-radius: 8px;
   text-align: center;
-  margin-bottom: 10px;
+}
+
+.logout-container:hover {
+  background-color: #555;
+}
+
+.logout-container a {
+  color: #e1d798;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
 }
 
 label {
@@ -148,9 +173,6 @@ label {
   color: #fff;
   text-shadow: 0 0 5px #e1d798;
 }
-
-
-
 
 
 form#add-troop-form {

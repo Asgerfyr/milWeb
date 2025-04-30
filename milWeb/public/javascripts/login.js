@@ -15,10 +15,6 @@ async function submitForm(event) {
     const hashedPassword = await sha256(document.getElementById("password").value);
     
     sendToPage(hashedUsername, hashedPassword);
-  
-    // Example: Display values (Replace with hashing & API call)
-    document.getElementById("hashedUsernameDisplay").textContent = "Hi: " + hashedUsername;
-    document.getElementById("hashedPasswordDisplay").textContent = "Hi: " + hashedPassword;
 };
 
 async function sendToPage(username, password) {
